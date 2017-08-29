@@ -208,25 +208,33 @@
                         <span aria-hidden="true">&times;</span>
                         <span class="sr-only">Close</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">Quavo</h4>
+                    <h1 class="modal-title" id="myModalLabel">Quavious Marshall</h1>
                 </div>
                 
                 <!-- Modal Body -->
                 <div class="modal-body">
-                    <img src= "img/portfolio-1.jpg">
-                    <h1> Here is more info about this guy</h1>
-                    <h2> Hes a dope DJ - he performs all genres</h2>
-                    <h2> He charges $20/event</h2>
-                    <h3> Fill out the inquiry below to Book him now</h3>
+                    <img src= "img/portfolio-1.jpg"> <!-- Center this picture-->
+                    <br> <br>                
+                    <h4 class="accent-text"><u>About Quavo</u></h4>
+                    <h5>Anything go down w/ the Huncho</h5>
+                    <br> 
+                    <h4 class="accent-text"><u>Preferred Pronouns</u></h4>
+                    <h5>Ze/Huncho</h5>
+                    <br> <br>
+                    <center> Want to book Quavious? Fill out short the form below! </center>
                     <p class="statusMsg"></p>
                     <form role="form">
                         <div class="form-group">
-                            <label for="inputName">Name</label>
-                            <input type="text" class="form-control" id="inputName" placeholder="Enter your name"/>
+                            <label for="inputName">Name/Student Org</label>
+                            <input type="text" class="form-control" id="inputName" placeholder="Enter your name or student organization"/>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail">Email</label>
                             <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPhoneNumber">Phone Number</label>
+                            <input class="form-control" id="inputPhoneNumber" placeholder="Enter your phone number"/>
                         </div>
                         <div class="form-group">
                             <label for="inputMessage">Date Requested</label>
@@ -238,7 +246,7 @@
                 <!-- Modal Footer -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary submitBtn" onclick="submitContactForm()">BOOK</button>
+                    <button type="button" class="btn btn-primary submitBtn" onclick="submitContactForm()">Book</button>
                 </div>
             </div>
         </div>
@@ -249,6 +257,7 @@
         var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
         var name = $('#inputName').val();
         var email = $('#inputEmail').val();
+        var phoneNumber = $('#inputPhoneNumber').val();
         var message = $('#inputDate').val();
         if(name.trim() == '' ){
             alert('Please enter your name.');
@@ -262,8 +271,12 @@
             alert('Please enter valid email.');
             $('#inputEmail').focus();
             return false;
+        }else if(phoneNumber.trim() ==''){
+            alert('Please enter your phone number.');
+            $('#inputPhoneNumber').focus();
+            return false;
         }else if(message.trim() == '' ){
-            alert('Please enter your message.');
+            alert('Please enter a date and time to book.');
             $('#inputMessage').focus();
             return false;
         }else{
@@ -291,6 +304,10 @@
         }
     }
     </script>
+
+    <center> 
+    <h2>Want to be added as a DJ? <a href="index.html#contact">Contact us!</a></h2> 
+    </center>
 
 
     <!--Footer-->
