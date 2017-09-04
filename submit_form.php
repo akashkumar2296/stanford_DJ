@@ -49,6 +49,6 @@ EOT;
     } else {
         $msg = 'err2';
     }
-    echo $msg;die();
+    echo $msg;;
 }
 ?>
