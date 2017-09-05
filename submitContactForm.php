@@ -21,7 +21,7 @@ if (array_key_exists('email', $_POST)) {
     //Use a fixed address in your own domain as the from address
     //**DO NOT** use the submitter's address here as it will be forgery
     //and will cause your messages to fail SPF checks
-    $mail->setFrom('djstanford@juug.org', 'Stanford DJ New Booking Request');
+    $mail->setFrom('djstanford@juug.org', 'Stanford DJ New DJ Request');
     //Send the message to yourself, or whoever should receive contact for submissions
     $mail->addAddress('akashkumar2296@gmail.com', 'Raj Raina');
     //Put the submitter's address in a reply-to header
@@ -33,11 +33,10 @@ if (array_key_exists('email', $_POST)) {
         $mail->isHTML(false);
         //Build a simple message body
         $mail->Body = <<<EOT
-Artist Name: {$_POST['artistName']}
 Email: {$_POST['email']}
 Name: {$_POST['name']}
+Subject: {$_POST['subject']}
 Message: {$_POST['message']}
-Phone Number: {$_POST['phoneNumber']}
 EOT;
         //Send the message, check for errors
         if (!$mail->send()) {

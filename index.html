@@ -67,8 +67,6 @@
       </div>
     </div>
     <!--/ Banner-->
-
-
  
     <!--Contact-->
     <section id ="contact" class="section-padding">
@@ -81,34 +79,28 @@
             </p>
             <hr class="bottom-line">
           </div>
-          <div id="sendmessage">Your message has been sent. We will get back to you very shortly!</div>
-          <div id="errormessage"></div>
           <form action="" method="post" role="form" class="contactForm">
               <div class="col-md-6 col-sm-6 col-xs-12 left">
                 <div class="form-group">
                     <input type="text" name="name" class="form-control form" id="name" placeholder="Your Name" data-rule="minlen:2" data-msg="Please enter at least 2 chars" />
-                    <div class="validation"></div>
                 </div>
                 <div class="form-group">
                     <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                    <div class="validation"></div>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                    <div class="validation"></div>
                 </div>
               </div>
               
               <div class="col-md-6 col-sm-6 col-xs-12 right">
                 <div class="form-group">
-                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                    <div class="validation"></div>
+                    <textarea class="form-control" name="message" rows="5" id= "message" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                 </div>
               </div>
               
               <div class="col-xs-12">
                 <!-- Button -->
-                <button type="submit" id="submit" name="submit" class="form contact-form-button light-form-button oswald light">SEND EMAIL</button>
+                <button type="submit" id="submit" name="submit" class="form contact-form-button light-form-button oswald light" onclick="submitform()">SEND EMAIL</button>
               </div>
           </form>
           
@@ -117,30 +109,81 @@
     </section>
     <!--/ Contact-->
     <!--Footer-->
+
+    <script>
+      function submitform(){
+        
+        var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var message = $('#message').val();
+        var subject = $('#subject').val();
+
+
+        console.log(name);
+        console.log(email);
+        console.log(message);
+        console.log(subject);
+
+        
+        if(name.trim() == '' ){
+          alert('Please enter your name.');
+          $('#name').focus();
+          return false;
+        }else if(email.trim() == '' ){
+          alert('Please enter your email.');
+          $('#email').focus();
+          return false;
+        }else if(email.trim() != '' && !reg.test(email)){
+          alert('Please enter valid email.');
+          $('#email').focus();
+          return false;
+        }else if(subject.trim() ==''){
+          alert('Please enter a subject.');
+          $('#subject').focus();
+          return false;
+        }else if(message.trim() == '' ){
+          alert('Please enter more information about yourself');
+          $('#message').focus();
+          return false;
+        }else{
+          $.ajax({
+            type:'POST',
+            url:'submitContactForm.php',
+            data:'contactFrmSubmit=1&name='+name+'&email='+email+'&subject='+subject+'&message='+message,
+            beforeSend: function () {
+              $('.submitBtn').attr("disabled","disabled");
+              $('.modal-body').css('opacity', '.5');
+            },
+            success:function(msg){
+              if(msg == 'ok'){
+                $('#name').val('');
+                $('#email').val('');
+                $('#subject').val('');
+                $('#message').val('');
+                $('.statusMsg').html('<span style="color:green;">Thanks for contacting us, we\'ll get back to you very shortly!</p>');
+              }else{
+                console.log(msg);
+                $('.statusMsg'+ clicked_id).html('<span style="color:red;">Some problem occurred, please try again.</span>');
+              }
+              $('.submitBtn').removeAttr("disabled");
+              $('.modal-body').css('opacity', '');
+            }
+          });
+
+        }
+
+
+        
+      }
+
+    </script>
     
     <footer id="footer" class="footer">
       <div class="container text-center">
     
-      <h3>Start Your Free Trial Now!</h3>
     
-      <form class="mc-trial row">
-        <div class="form-group col-md-3 col-md-offset-2 col-sm-4">
-          <div class=" controls">
-            <input name="name" placeholder="Enter Your Name" class="form-control" type="text">
-          </div>
-        </div><!-- End email input -->
-        <div class="form-group col-md-3 col-sm-4">
-          <div class=" controls">
-            <input name="EMAIL" placeholder="Enter Your email" class="form-control" type="email">
-          </div>
-        </div><!-- End email input -->
-        <div class="col-md-2 col-sm-4">
-          <p>
-            <button name="submit" type="submit" class="btn btn-block btn-submit">
-            Submit <i class="fa fa-arrow-right"></i></button>
-          </p>
-        </div>
-      </form><!-- End newsletter-form -->
+
       <ul class="social-links">
         <li><a href="#link"><i class="fa fa-twitter fa-fw"></i></a></li>
         <li><a href="#link"><i class="fa fa-facebook fa-fw"></i></a></li>

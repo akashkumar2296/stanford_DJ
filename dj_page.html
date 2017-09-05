@@ -214,34 +214,34 @@
         class_div += '<h5>'+ pronoun +'</h5>';
         class_div += '<br> <br>';
         class_div += '<center> Want to book ' + name + '? Fill out short the form below! </center>';
-        class_div += '<p class="statusMsg"></p>';
+        class_div += '<p class="statusMsg'+index+'"></p>';
         class_div += '<form role="form">';
 
         class_div += '<div class="form-group">';
-        class_div += '<label for="inputName">Name/Student Org</label>';
-        class_div += '<input type="text" class="form-control" id="inputName" placeholder="Enter your name or student organization"/>';
+        class_div += '<label for="inputName' + index+ '">Name/Student Org</label>';
+        class_div += '<input type="text" class="form-control" id="inputName' + index+ '" placeholder="Enter your name or student organization"/>';
         class_div += '</div>';
 
         class_div += '<div class="form-group">';
-        class_div += '<label for="inputEmail">Email</label>';
-        class_div += '<input type="email" class="form-control" id="inputEmail" placeholder="Enter your email"/>'
+        class_div += '<label for="inputEmail' + index+ '">Email</label>';
+        class_div += '<input type="email" class="form-control" id="inputEmail' + index+ '" placeholder="Enter your email"/>'
         class_div += '</div>';
 
         class_div += '<div class="form-group">';
-        class_div += '<label for="inputPhoneNumber">Phone Number</label>';
-        class_div += '<input class="form-control" id="inputPhoneNumber" placeholder="Enter your phone number"/>';
+        class_div += '<label for="inputPhoneNumber' + index+ '">Phone Number</label>';
+        class_div += '<input class="form-control" id="inputPhoneNumber' + index+ '" placeholder="Enter your phone number"/>';
         class_div += '</div>';
 
         class_div += '<div class="form-group">';
-        class_div += '<label for="inputMessage">Date Requested</label>';
-        class_div += '<textarea class="form-control" id="inputDate" placeholder="Enter your dates/times required"></textarea>';
+        class_div += '<label for="inputMessage' + index+ '">Date Requested</label>';
+        class_div += '<textarea class="form-control" id="inputDate' + index+ '" placeholder="Enter your dates/times required"></textarea>';
         class_div += '</div>';
 
         class_div += '</form>';
         class_div += '</div>';
         class_div += '<div class="modal-footer">';
         class_div += '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
-        class_div += '<button type="button" class="btn btn-success submitBtn" onclick="submitContactForm_'+index+'()">Book</button>';
+        class_div += '<button type="button" class="btn btn-success submitBtn" onclick="submitContactForm('+index +',\''+ name+ '\)">Book</button>';
         class_div += '</div>';
         class_div += '</div>';
         class_div += '</div>';
@@ -299,29 +299,34 @@
         class_di += '<h5>'+ pronoun +'</h5>';
         class_di += '<br> <br>';
         class_di += '<center> Want to book ' + name + '? Fill out short the form below! </center>';
-        class_di += '<p class="statusMsg"></p>';
+        class_di += '<p class="statusMsg'+(index + 100000)+'"></p>';
         class_di += '<form role="form">';
         class_di += '<div class="form-group">';
-        class_di += '<label for="inputName">Name/Student Org</label>';
-        class_di += '<input type="text" class="form-control" id="inputName" placeholder="Enter your name or student organization"/>';
+        
+        class_di += '<label for="inputName' + (index + 100000)+ '">Name/Student Org</label>';
+        class_di += '<input type="text" class="form-control" id="inputName' + (index+100000) + '" placeholder="Enter your name or student organization"/>';
         class_di += '</div>';
+        
         class_di += '<div class="form-group">';
-        class_di += '<label for="inputEmail">Email</label>';
-        class_di += '<input type="email" class="form-control" id="inputEmail" placeholder="Enter your email"/>'
+        class_di += '<label for="inputEmail' + (index+100000) + '">Email</label>';
+        class_di += '<input type="email" class="form-control" id="inputEmail' + (index+100000) + '" placeholder="Enter your email"/>'
         class_di += '</div>';
+        
         class_di += '<div class="form-group">';
-        class_di += '<label for="inputPhoneNumber">Phone Number</label>';
-        class_di += '<input class="form-control" id="inputPhoneNumber" placeholder="Enter your phone number"/>';
+        class_di += '<label for="inputPhoneNumber' + (index+100000) + '">Phone Number</label>';
+        class_di += '<input class="form-control" id="inputPhoneNumber' + (index+100000) + '" placeholder="Enter your phone number"/>';
         class_di += '</div>';
+        
         class_di += '<div class="form-group">';
-        class_di += '<label for="inputMessage">Date Requested</label>';
-        class_di += '<textarea class="form-control" id="inputDate" placeholder="Enter your dates/times required"></textarea>';
+        class_di += '<label for="inputMessage' + (index+100000) + '">Date Requested</label>';
+        class_di += '<textarea class="form-control" id="inputDate' + (index+100000) + '" placeholder="Enter your dates/times required"></textarea>';
+        
         class_di += '</div>';
         class_di += '</form>';
         class_di += '</div>';
         class_di += '<div class="modal-footer">';
         class_di += '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
-        class_di += '<button type="button" class="btn btn-success submitBtn" id=_c'+index+' onclick="submitContactForm(this.id)">Book</button>';
+        class_di += '<button type="button" class="btn btn-success submitBtn" onclick="submitContactForm('+(index+100000)+',\''+ name+ '\')">Book</button>';
         class_di += '</div>';
         class_di += '</div>';
         class_di += '</div>';
@@ -362,58 +367,62 @@
 
 
     <script>
-      function submitContactForm(clicked_id){
+      function submitContactForm(clicked_id, artistName){
         
         var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
-        var name = $('#inputName').val();
-        var email = $('#inputEmail').val();
-        var phoneNumber = $('#inputPhoneNumber').val();
-        var message = $('#inputDate').val();
+        var name = $('#inputName' + clicked_id).val();
+        var email = $('#inputEmail' + clicked_id).val();
+        var phoneNumber = $('#inputPhoneNumber' + clicked_id).val();
+        var message = $('#inputDate' + clicked_id).val();
 
+
+        console.log(clicked_id);
         console.log(name);
         console.log(email);
         console.log(phoneNumber);
         console.log(message);
+        console.log(artistName);
+
         
         if(name.trim() == '' ){
           alert('Please enter your name.');
-          $('#inputName').focus();
+          $('#inputName' + clicked_id).focus();
           return false;
         }else if(email.trim() == '' ){
           alert('Please enter your email.');
-          $('#inputEmail').focus();
+          $('#inputEmail'+ clicked_id).focus();
           return false;
         }else if(email.trim() != '' && !reg.test(email)){
           alert('Please enter valid email.');
-          $('#inputEmail').focus();
+          $('#inputEmail'+ clicked_id).focus();
           return false;
         }else if(phoneNumber.trim() ==''){
           alert('Please enter your phone number.');
-          $('#inputPhoneNumber').focus();
+          $('#inputPhoneNumber'+ clicked_id).focus();
           return false;
         }else if(message.trim() == '' ){
           alert('Please enter a date and time to book.');
-          $('#inputMessage').focus();
+          $('#inputMessage'+ clicked_id).focus();
           return false;
         }else{
           $.ajax({
             type:'POST',
             url:'submit_form.php',
-            data:'contactFrmSubmit=1&name='+name+'&email='+email+'&phoneNumber='+phoneNumber+'&message='+message,
+            data:'contactFrmSubmit=1&name='+name+'&email='+email+'&phoneNumber='+phoneNumber+'&message='+message+'&artistName='+artistName,
             beforeSend: function () {
               $('.submitBtn').attr("disabled","disabled");
               $('.modal-body').css('opacity', '.5');
             },
             success:function(msg){
               if(msg == 'ok'){
-                $('#inputName').val('');
-                $('#inputEmail').val('');
-                $('#inputPhoneNumber').val('');
-                $('#inputDate').val('');
-                $('.statusMsg').html('<span style="color:green;">Thanks for contacting us, we\'ll get back to you very shortly!</p>');
+                $('#inputName'+ clicked_id).val('');
+                $('#inputEmail'+ clicked_id).val('');
+                $('#inputPhoneNumber'+ clicked_id).val('');
+                $('#inputDate'+ clicked_id).val('');
+                $('.statusMsg' + clicked_id).html('<span style="color:green;">Thanks for contacting us, we\'ll get back to you very shortly!</p>');
               }else{
                 console.log(msg);
-                $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again.</span>');
+                $('.statusMsg'+ clicked_id).html('<span style="color:red;">Some problem occurred, please try again.</span>');
               }
               $('.submitBtn').removeAttr("disabled");
               $('.modal-body').css('opacity', '');
@@ -422,10 +431,6 @@
 
         }
 
-        document.getElementById("#inputName").reset();
-        document.getElementById("#inputEmail").reset();
-        document.getElementById("#inputPhoneNumber").reset();
-        document.getElementById("#inputDate").reset();
 
         
       }
