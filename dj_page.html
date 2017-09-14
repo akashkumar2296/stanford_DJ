@@ -63,7 +63,7 @@
              <div class="col-md-4 col-sm-6 padleft-right" id=4></div>
              <div class="col-md-4 col-sm-6 padleft-right" id=5></div>
              <div class="col-md-4 col-sm-6 padleft-right" id=6></div>
-
+             <div class="col-md-4 col-sm-6 padleft-right" id=7></div>
              <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
              <script>
@@ -95,7 +95,9 @@
                 var allRows = data.split(/\r?\n|\r/);
                 master_array_1 = allRows;
 
-                for(i = 1; i < 7; i++){
+                console.log(master_array_1)
+
+                for(i = 1; i < 8; i++){
         
                   
                   var class_div_temp_1 = populate_fields_1(master_array_1[i-1].split(',')[0], master_array_1[i-1].split(',')[1], master_array_1[i-1].split(',')[2], i);
@@ -241,10 +243,12 @@
         class_div += '</div>';
         class_div += '<div class="modal-footer">';
         class_div += '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
-        class_div += '<button type="button" class="btn btn-success submitBtn" onclick="submitContactForm('+index +',\''+ name+ '\)">Book</button>';
+        class_div += '<button type="button" class="btn btn-success submitBtn" onclick="submitContactForm('+index +',\''+ name+ '\')">Book</button>';
         class_div += '</div>';
         class_div += '</div>';
         class_div += '</div>';
+
+        //console.log(class_div);
 
         return class_div;
       }
@@ -254,9 +258,9 @@
         var allRows = data.split(/\r?\n|\r/);
         master_array = allRows;
 
-        
+        console.log(master_array)
 
-        for(i = 1; i < 7; i++){
+        for(i = 1; i < 8; i++){
 
           var class_div = populate_fields(master_array[i-1].split(',')[0], master_array[i-1].split(',')[1], master_array[i-1].split(',')[2], master_array[i-1].split(',')[3], i);
           document.getElementById("modalForm" + i).innerHTML = class_div;
@@ -358,6 +362,7 @@
     <div class="modal fade" id="modalForm4" role="dialog"></div>
     <div class="modal fade" id="modalForm5" role="dialog"></div>
     <div class="modal fade" id="modalForm6" role="dialog"></div>
+    <div class="modal fade" id="modalForm7" role="dialog"></div>
     <div class="modal fade" id="modalForm_c1" role="dialog"></div>
     <div class="modal fade" id="modalForm_c2" role="dialog"></div>
     <div class="modal fade" id="modalForm_c3" role="dialog"></div>
@@ -368,6 +373,8 @@
 
     <script>
       function submitContactForm(clicked_id, artistName){
+
+        console.log("comes here");
         
         var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
         var name = $('#inputName' + clicked_id).val();
@@ -453,16 +460,8 @@
           <li><a href="#link"><i class="fa fa-dribbble fa-fw"></i></a></li>
           <li><a href="#link"><i class="fa fa-linkedin fa-fw"></i></a></li>
         </ul>
-        ©2016 Mentor Theme. All rights reserved
-        <div class="credits">
-            <!-- 
-                All the links in the footer should remain intact. 
-                You can delete the links only if you purchased the pro version.
-                Licensing information: https://bootstrapmade.com/license/
-                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Mentor
-              -->
-              Designed by <a href="https://bootstrapmade.com/">Free Bootstrap Themes</a>
-            </div>
+        ©2017 Akash Kumar and Raj Raina
+      
           </div>
         </footer>
         <!--/ Footer-->
