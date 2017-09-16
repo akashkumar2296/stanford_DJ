@@ -46,8 +46,6 @@ a:hover, a:focus{
 Navigation bar
 ************************************/
 
-#logo { float: left; }
-
 .navbar-default .navbar-brand {
     color: #5FCF80;
 }
