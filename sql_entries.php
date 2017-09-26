@@ -2,7 +2,7 @@
 <?php
 $q = intval($_GET['q']);
 
-$con = mysqli_connect('us-cdbr-azure-southcentral-f.cloudapp.net','b9e7406c03c6ee','93678b98','godj');
+$con = mysqli_connect('*********','*******','*******','godj'); # sike bruh u actualy thought
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
 }
