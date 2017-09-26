@@ -17,10 +17,7 @@
   <link rel="stylesheet" type="text/css" href="css/imagehover.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- =======================================================
-        Theme Name: Mentor
-        Theme URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
-        Author: BootstrapMade.com
-        Author URL: https://bootstrapmade.com
+        All this stuff ^^^ is requirements, header files
         ======================================================= -->
       </head>
       <body>
@@ -36,8 +33,8 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
 
-            <a href="#"><img src="img/SoundboardCrop.png" style="height:50px"> </a>
-            <a href="#"><img src="img/GoDJLogo1.png" style="height:60px"> </a>
+              <a href="#"><img src="img/SoundboardCrop.png" style="height:50px"> </a>
+              <a href="#"><img src="img/GoDJLogo1.png" style="height:60px"> </a>
 
 
               <ul class="nav navbar-nav navbar-right">
@@ -49,9 +46,9 @@
           </div>
         </nav>
         <!--/ Navigation bar-->
-        <!--Modal box-->
+      
 
-        <!--Courses-->
+        <!--First set of picture cards with previews, when you want to add a new one, manually add it for now-->
         <section id ="courses" class="section-padding">
 
 
@@ -66,67 +63,27 @@
           </div>
           <div class="container">
             <div class="row">
+             <div class="col-md-4 col-sm-6 padleft-right" id=0></div>
              <div class="col-md-4 col-sm-6 padleft-right" id=1></div>
              <div class="col-md-4 col-sm-6 padleft-right" id=2></div>
              <div class="col-md-4 col-sm-6 padleft-right" id=3></div>
              <div class="col-md-4 col-sm-6 padleft-right" id=4></div>
              <div class="col-md-4 col-sm-6 padleft-right" id=5></div>
-             <div class="col-md-4 col-sm-6 padleft-right" id=6></div>
-             <div class="col-md-4 col-sm-6 padleft-right" id=7></div>
              <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+           </div>
+         </div>
+       </section>
 
-             <script>
-              $.ajax({
-                url: 'yao.csv',
-                dataType: 'text',
-              }).done(successFunction_1);
-              var master_array_1;
+       <!--First set of modals, when you want to add a new one, just do it here manually-->
+      <div class="modal fade" id="modalForm0" role="dialog"></div>
+      <div class="modal fade" id="modalForm1" role="dialog"></div>
+      <div class="modal fade" id="modalForm2" role="dialog"></div>
+      <div class="modal fade" id="modalForm3" role="dialog"></div>
+      <div class="modal fade" id="modalForm4" role="dialog"></div>
+      <div class="modal fade" id="modalForm5" role="dialog"></div>
 
-            
-
-              function populate_fields_1(name, bio, picture, index){
-
-
-                var class_div_1 = '<figure class="imghvr-fold-up">';
-                class_div_1 += '<img src="img/'+picture+'" class="img-responsive">';
-                class_div_1 += '<figcaption>';
-                class_div_1 += '<h3>'+name+'</h3>';
-                class_div_1 += '<p>'+bio+'</p>';
-                class_div_1 += '</figcaption>';
-                class_div_1 += '<a href="#" data-toggle="modal" data-target="#modalForm' + index+ '"></a>';
-                class_div_1 += '</figure';
-                class_div_1 += '</div>';
-
-                return class_div_1;
-              }
-
-              function successFunction_1(data) {
-                var allRows = data.split(/\r?\n|\r/);
-                master_array_1 = allRows;
-
-                console.log(master_array_1)
-
-                for(i = 1; i < 8; i++){
-        
-                  
-                  var class_div_temp_1 = populate_fields_1(master_array_1[i-1].split(',')[0], master_array_1[i-1].split(',')[1], master_array_1[i-1].split(',')[2], i);
-                  document.getElementById(i).innerHTML = class_div_temp_1;
-                  
-                }
-
-
-              }
-
-
-            </script>
-
-          </div>
-        </div>
-      </section>
-      <!--/ Courses-->
-
-      <!--Courses-->
-      <section id ="courses" class="section-padding">
+       <!--Second set of picture cards with previews, when you want to add a new one, manually add it for now-->
+       <section id ="courses" class="section-padding">
         <div class="container">
           <div class="row">
             <div class="header-section text-center">
@@ -138,121 +95,167 @@
         </div>
         <div class="container">
           <div class="row">
+           <div class="col-md-4 col-sm-6 padleft-right" id=0_c></div>
            <div class="col-md-4 col-sm-6 padleft-right" id=1_c></div>
            <div class="col-md-4 col-sm-6 padleft-right" id=2_c></div>
            <div class="col-md-4 col-sm-6 padleft-right" id=3_c></div>
            <div class="col-md-4 col-sm-6 padleft-right" id=4_c></div>
            <div class="col-md-4 col-sm-6 padleft-right" id=5_c></div>
-           <div class="col-md-4 col-sm-6 padleft-right" id=6_c></div>
-
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-           <script>
-            $.ajax({
-              url: 'yao_cultural.csv',
-              dataType: 'text',
-            }).done(successFunction_2);
-            var master_array_2;
-
-
-
-            function populate_fields_2(name, bio, picture, index){
-        
-
-              var class_div_2 = '<figure class="imghvr-fold-up">';
-              class_div_2 += '<img src="img/'+picture+'" class="img-responsive">';
-              class_div_2 += '<figcaption>';
-              class_div_2 += '<h3>'+name+'</h3>';
-              class_div_2 += '<p>'+bio+'</p>';
-              class_div_2 += '</figcaption>';
-              class_div_2 += '<a href="#" data-toggle="modal" data-target="#modalForm_c' + index + '""></a>';
-              class_div_2 += '</figure';
-              class_div_2 += '</div>';
-
-              return class_div_2;
-            }
-
-            function successFunction_2(data) {
-              var allRows = data.split(/\r?\n|\r/);
-              master_array_2 = allRows;
-
-              for(i = 1; i < 7; i++){
-
-
-                var class_div_temp_2 = populate_fields_2(master_array_2[i-1].split(',')[0], master_array_2[i-1].split(',')[1], master_array_2[i-1].split(',')[2], i);
-                document.getElementById(i + "_c").innerHTML = class_div_temp_2;
-              }
-
-
-            }
-
-            
-          </script>
-
         </div>
       </div>
     </section>
-    <!--/ Courses-->
+  
+    <!--First set of modals, when you want to add a new one, just do it here manually-->
+    <div class="modal fade" id="modalForm_c0" role="dialog"></div>
+    <div class="modal fade" id="modalForm_c1" role="dialog"></div>
+    <div class="modal fade" id="modalForm_c2" role="dialog"></div>
+    <div class="modal fade" id="modalForm_c3" role="dialog"></div>
+    <div class="modal fade" id="modalForm_c4" role="dialog"></div>
+    <div class="modal fade" id="modalForm_c5" role="dialog"></div>
 
-    <script>
-      $.ajax({
-        url: 'yao_modals.csv',
-        dataType: 'text',
-      }).done(successFunction);
-      var master_array;
-      
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-      
-      function populate_fields(name, picture, about, pronoun, index){
-        var class_div = '<div class="modal-dialog">';
-        class_div += '<div class="modal-content">';
-        class_div += '<div class="modal-header">';
-        class_div += '<button type="button" class="close" data-dismiss="modal">';
-        class_div += '<span aria-hidden="true">&times;</span>';
-        class_div += '<span class="sr-only">Close</span>';
-        class_div += '</button>';
-        class_div += '<h1 class="modal-title" id="myModalLabel">'+ name+ '</h1>';
-        class_div += '</div>';
-        class_div += '<div class="modal-body">';
-        class_div += '<center>';
-        class_div += '<img src= "img/' + picture + '.jpg">'; 
-        class_div += '</center>';
-        class_div += '<br> <br>';                
-        class_div += '<h4 class="accent-text"><u> About '+ name +'</u></h4>';
-        class_div += '<h5>'+ about +'</h5>';
-        class_div += '<br>';
-        class_div += '<center> Want to book ' + name + '? Fill out short the form below! </center>';
-        class_div += '<p class="statusMsg'+index+'"></p>';
-        class_div += '<form role="form">';
+     <script>
 
-        class_div += '<div class="form-group">';
-        class_div += '<label for="inputName' + index+ '">Name/Student Org</label>';
-        class_div += '<input type="text" class="form-control" id="inputName' + index+ '" placeholder="Enter your name or student organization"/>';
-        class_div += '</div>';
+      // This part is calling the database using the PHP backend (sql_entries.php)
 
-        class_div += '<div class="form-group">';
-        class_div += '<label for="inputEmail' + index+ '">Email</label>';
-        class_div += '<input type="email" class="form-control" id="inputEmail' + index+ '" placeholder="Enter your email"/>'
-        class_div += '</div>';
+      var oReq = new XMLHttpRequest(); 
+      var regular = [];
+      var cultural = [];
+      oReq.onload = function() {
+              
+              //This object is a JSON object with all relevant information from the query
+              //[0] is all regular DJs
+              //[1] is all cultural DJs
+              var obj = jQuery.parseJSON(this.responseText);
+              regular = obj[0];
+              cultural = obj[1];
+              console.log(regular);
+              console.log(cultural);
 
-        class_div += '<div class="form-group">';
-        class_div += '<label for="inputPhoneNumber' + index+ '">Phone Number</label>';
-        class_div += '<input class="form-control" id="inputPhoneNumber' + index+ '" placeholder="Enter your phone number"/>';
-        class_div += '</div>';
+              //First loop populates regular entries
 
-        class_div += '<div class="form-group">';
-        class_div += '<label for="inputMessage' + index+ '">Date Requested</label>';
-        class_div += '<textarea class="form-control" id="inputDate' + index+ '" placeholder="Enter your dates/times required"></textarea>';
-        class_div += '</div>';
+              for(i = 0; i < 6; i++){
 
-        class_div += '</form>';
-        class_div += '</div>';
-        class_div += '<div class="modal-footer">';
-        class_div += '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
-        class_div += '<button type="button" class="btn btn-success submitBtn" onclick="submitContactForm('+index +',\''+ name+ '\')">Book</button>';
-        class_div += '</div>';
-        class_div += '</div>';
-        class_div += '</div>';
+                  
+                var class_div_temp_4 = populate_fields_4(regular[i][0], regular[i][1], regular[i][2],  i); //populate card
+                var class_div_temp = populate_fields(regular[i][0], regular[i][2], regular[i][3], 'null', i); //populate modal
+
+              
+                document.getElementById(i).innerHTML = class_div_temp_4; //fill in card
+                document.getElementById("modalForm" + i).innerHTML = class_div_temp; //fill in modal
+              }
+
+              //Second loop populates cultural entries
+
+              for(i = 0; i < 6; i++){
+
+                var class_div_temp_2 = populate_fields_2(cultural[i][0], cultural[i][1], cultural[i][2], i); //populate card
+                var class_div_temp_3 = populate_fields_3(cultural[i][0], cultural[i][2], cultural[i][3], 'null', i); //populate modal
+
+                document.getElementById(i + "_c").innerHTML = class_div_temp_2; //fill in card
+                document.getElementById("modalForm_c" + i).innerHTML = class_div_temp_3; //fill in modal
+
+              }
+
+              
+
+
+            };
+            oReq.open("get", "sql_entries.php", true);
+          //                               ^ Don't block the rest of the execution.
+          //                                 Don't wait until the request finishes to 
+          //                                 continue.
+          oReq.send();
+
+
+
+          //Function used to populate CULTURAL card
+          function populate_fields_2(name, bio, picture, index){
+
+
+            var class_div_2 = '<figure class="imghvr-fold-up">';
+            class_div_2 += '<img src="img/'+picture+'" class="img-responsive">';
+            class_div_2 += '<figcaption>';
+            class_div_2 += '<h3>'+name+'</h3>';
+            class_div_2 += '<p>'+bio+'</p>';
+            class_div_2 += '</figcaption>';
+            class_div_2 += '<a href="#" data-toggle="modal" data-target="#modalForm_c' + index + '""></a>';
+            class_div_2 += '</figure';
+            class_div_2 += '</div>';
+
+            return class_div_2;
+          }
+
+          //Function used to populate REGULAR card
+          function populate_fields_4(name, bio, picture, index){
+
+
+            var class_div_2 = '<figure class="imghvr-fold-up">';
+            class_div_2 += '<img src="img/'+picture+'" class="img-responsive">';
+            class_div_2 += '<figcaption>';
+            class_div_2 += '<h3>'+name+'</h3>';
+            class_div_2 += '<p>'+bio+'</p>';
+            class_div_2 += '</figcaption>';
+            class_div_2 += '<a href="#" data-toggle="modal" data-target="#modalForm' + index + '""></a>';
+            class_div_2 += '</figure';
+            class_div_2 += '</div>';
+
+            return class_div_2;
+          }
+
+
+          //Function used to populate REGULAR modal
+          function populate_fields(name, picture, about, pronoun, index){
+            var class_div = '<div class="modal-dialog">';
+            class_div += '<div class="modal-content">';
+            class_div += '<div class="modal-header">';
+            class_div += '<button type="button" class="close" data-dismiss="modal">';
+            class_div += '<span aria-hidden="true">&times;</span>';
+            class_div += '<span class="sr-only">Close</span>';
+            class_div += '</button>';
+            class_div += '<h1 class="modal-title" id="myModalLabel">'+ name+ '</h1>';
+            class_div += '</div>';
+            class_div += '<div class="modal-body">';
+            class_div += '<center>';
+            class_div += '<img src= "img/' + picture + '"">'; 
+            class_div += '</center>';
+            class_div += '<br> <br>';                
+            class_div += '<h4 class="accent-text"><u> About '+ name +'</u></h4>';
+            class_div += '<h5>'+ about +'</h5>';
+            class_div += '<br>';
+            class_div += '<center> Want to book ' + name + '? Fill out short the form below! </center>';
+            class_div += '<p class="statusMsg'+index+'"></p>';
+            class_div += '<form role="form">';
+
+            class_div += '<div class="form-group">';
+            class_div += '<label for="inputName' + index+ '">Name/Student Org</label>';
+            class_div += '<input type="text" class="form-control" id="inputName' + index+ '" placeholder="Enter your name or student organization"/>';
+            class_div += '</div>';
+
+            class_div += '<div class="form-group">';
+            class_div += '<label for="inputEmail' + index+ '">Email</label>';
+            class_div += '<input type="email" class="form-control" id="inputEmail' + index+ '" placeholder="Enter your email"/>'
+            class_div += '</div>';
+
+            class_div += '<div class="form-group">';
+            class_div += '<label for="inputPhoneNumber' + index+ '">Phone Number</label>';
+            class_div += '<input class="form-control" id="inputPhoneNumber' + index+ '" placeholder="Enter your phone number"/>';
+            class_div += '</div>';
+
+            class_div += '<div class="form-group">';
+            class_div += '<label for="inputMessage' + index+ '">Date Requested</label>';
+            class_div += '<textarea class="form-control" id="inputDate' + index+ '" placeholder="Enter your dates/times required"></textarea>';
+            class_div += '</div>';
+
+            class_div += '</form>';
+            class_div += '</div>';
+            class_div += '<div class="modal-footer">';
+            class_div += '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
+            class_div += '<button type="button" class="btn btn-success submitBtn" onclick="submitContactForm('+index +',\''+ name+ '\')">Book</button>';
+            class_div += '</div>';
+            class_div += '</div>';
+            class_div += '</div>';
 
         //console.log(class_div);
 
@@ -260,33 +263,8 @@
       }
       
       
-      function successFunction(data) {
-        var allRows = data.split(/\r?\n|\r/);
-        master_array = allRows;
+      //Function used to populate CULTURAL modal
 
-        console.log(master_array)
-
-        for(i = 1; i < 8; i++){
-
-          var class_div = populate_fields(master_array[i-1].split(',')[0], master_array[i-1].split(',')[1], master_array[i-1].split(',')[2], master_array[i-1].split(',')[3], i);
-          document.getElementById("modalForm" + i).innerHTML = class_div;
-        }
-
-        
-      }
-
-
-    </script>
-
-    <script>
-      $.ajax({
-        url: 'yao_modals_cultural.csv',
-        dataType: 'text',
-      }).done(successFunction_3);
-      var master_array_3;
-      
-
-      
       function populate_fields_3(name, picture, about, pronoun, index){
         var class_di = '<div class="modal-dialog">';
         class_di += '<div class="modal-content">';
@@ -299,7 +277,7 @@
         class_di += '</div>';
         class_di += '<div class="modal-body">';
         class_di += '<center>';
-        class_di += '<img src= "img/' + picture + '.jpg">'; 
+        class_di += '<img src= "img/' + picture + '">'; 
         class_di += '</center>';
         class_di += '<br> <br>';                
         class_di += '<h4 class="accent-text"><u> About '+ name +'</u></h4>';
@@ -343,42 +321,18 @@
       }
       
       
-      function successFunction_3(data) {
-        var allRows = data.split(/\r?\n|\r/);
-        master_array_3 = allRows;
 
-        
-
-        for(i = 1; i < 7; i++){
-
-          var class_di = populate_fields_3(master_array_3[i-1].split(',')[0], master_array_3[i-1].split(',')[1], master_array_3[i-1].split(',')[2], master_array_3[i-1].split(',')[3], i);
-          document.getElementById("modalForm_c" + i).innerHTML = class_di;
-        }
-
-        
-      }
-
-
+      
     </script>
-    <div class="modal fade" id="modalForm1" role="dialog"></div>
-    <div class="modal fade" id="modalForm2" role="dialog"></div>
-    <div class="modal fade" id="modalForm3" role="dialog"></div>
-    <div class="modal fade" id="modalForm4" role="dialog"></div>
-    <div class="modal fade" id="modalForm5" role="dialog"></div>
-    <div class="modal fade" id="modalForm6" role="dialog"></div>
-    <div class="modal fade" id="modalForm7" role="dialog"></div>
-    <div class="modal fade" id="modalForm_c1" role="dialog"></div>
-    <div class="modal fade" id="modalForm_c2" role="dialog"></div>
-    <div class="modal fade" id="modalForm_c3" role="dialog"></div>
-    <div class="modal fade" id="modalForm_c4" role="dialog"></div>
-    <div class="modal fade" id="modalForm_c5" role="dialog"></div>
-    <div class="modal fade" id="modalForm_c6" role="dialog"></div>
 
 
     <script>
+      //This is for contact form
       function submitContactForm(clicked_id, artistName){
 
         console.log("comes here");
+
+        //Basically gets all the attributes from the form and gives it variable names
         
         var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
         var name = $('#inputName' + clicked_id).val();
@@ -394,6 +348,7 @@
         console.log(message);
         console.log(artistName);
 
+        //Checks to see that all the parameters are valid
         
         if(name.trim() == '' ){
           alert('Please enter your organization.');
@@ -417,6 +372,8 @@
           return false;
         }else{
           $.ajax({
+
+            //Post request sent to php, which uses PHPMailer and Google SMTP server to send the email
             type:'POST',
             url:'submit_form.php',
             data:'contactFrmSubmit=1&name='+name+'&email='+email+'&phoneNumber='+phoneNumber+'&message='+message+'&artistName='+artistName,
@@ -459,44 +416,44 @@
 
         <!-- Social links -->
 
-      <ul class="social-links">
-        <li><a href="#link" data-toggle="modal" data-target="#myModal"><i class="fa fa-twitter fa-fw"></i></a></li>
-        <li><a href="#link" data-toggle="modal" data-target="#myModal"><i class="fa fa-facebook fa-fw"></i></a></li>
-        <li><a href="#link" data-toggle="modal" data-target="#myModal"><i class="fa fa-google-plus fa-fw"></i></a></li>
-        <li><a href="#link" data-toggle="modal" data-target="#myModal"><i class="fa fa-dribbble fa-fw"></i></a></li>
-        <li><a href="#link" data-toggle="modal" data-target="#myModal"><i class="fa fa-linkedin fa-fw"></i></a></li>
-      </ul>
+        <ul class="social-links">
+          <li><a href="#link" data-toggle="modal" data-target="#myModal"><i class="fa fa-twitter fa-fw"></i></a></li>
+          <li><a href="#link" data-toggle="modal" data-target="#myModal"><i class="fa fa-facebook fa-fw"></i></a></li>
+          <li><a href="#link" data-toggle="modal" data-target="#myModal"><i class="fa fa-google-plus fa-fw"></i></a></li>
+          <li><a href="#link" data-toggle="modal" data-target="#myModal"><i class="fa fa-dribbble fa-fw"></i></a></li>
+          <li><a href="#link" data-toggle="modal" data-target="#myModal"><i class="fa fa-linkedin fa-fw"></i></a></li>
+        </ul>
 
-      <!-- Modal for Social Link Popup "Coming Soon!-->
-      <div class="modal fade" id="myModal" role="dialog">
-      <div class="modal-dialog">
-    
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Coming soon!</h4>
-          </div>
-          <div class="modal-body">
-            <p>You can find us on social media soon!</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        <!-- Modal for Social Link Popup "Coming Soon!-->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Coming soon!</h4>
+              </div>
+              <div class="modal-body">
+                <p>You can find us on social media soon!</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
           </div>
         </div>
-      
-          </div>
-         </div>
         ©2017 GoDJ Inc.
-          </div>
-        </footer>
-        <!--/ Footer-->
+      </div>
+    </footer>
+    <!--/ Footer-->
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery.easing.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/custom.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
 
 
-      </body>
-      </html>
+  </body>
+  </html>
